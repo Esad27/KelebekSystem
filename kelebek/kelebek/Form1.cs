@@ -12,8 +12,8 @@ namespace kelebek
     public partial class Form1 : Form
     {
         IFirebaseConfig config = new FirebaseConfig {
-            AuthSecret = "rqipcgoTW8ajOuxD1oBuZMhU5gDZdiGhCB4PJ5Th",
-            BasePath = "https://saben-aaf4f-default-rtdb.europe-west1.firebasedatabase.app/",
+            AuthSecret = "***AuthSecret***",
+            BasePath = "***BasePath***",
 
         };
         IFirebaseClient client;
@@ -130,13 +130,13 @@ namespace kelebek
         }
         public async void sill()
         {
-            DeleteResponse resp = await client.DeleteTaskAsync("siniflar/" + sinif + "-" + sübee + "/" + no);
+            DeleteResponse resp = await client.DeleteTaskAsync("siniflar/" + sinif + "-" + sÃ¼bee + "/" + no);
             JObject silinen = JObject.Parse(resp.Body);
             refresh();
         }
         int no = -1;
         int sinif = -1;
-        string sübee = "null";
+        string sÃ¼bee = "null";
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -148,7 +148,7 @@ namespace kelebek
                 yapiBindingSource.Add(new yapi() { isim = textBox1.Text, soyad = textBox2.Text, sinif = int.Parse(textBox4.Text), sube = textBox5.Text, no = int.Parse(textBox3.Text) });
 
             }
-            else//düzenle
+            else//dÃ¼zenle
             {
                 sill();
                 ekle();
@@ -189,7 +189,7 @@ namespace kelebek
             button2.Visible = true;
             no = (int)dataGridView1.SelectedRows[0].Cells[2].Value;
             sinif = (int)dataGridView1.SelectedRows[0].Cells[3].Value;
-            sübee = (string)dataGridView1.SelectedRows[0].Cells[4].Value; ;
+            sÃ¼bee = (string)dataGridView1.SelectedRows[0].Cells[4].Value; ;
             foreach (DataGridViewRow item in dataGridView1.SelectedRows)
             {
                 textBox1.Text = item.Cells[0].Value.ToString();
@@ -457,7 +457,7 @@ namespace kelebek
                     totalsin += 30;
 
 
-                    for (int c = 0; c < siniflar[siniflarrr[b]].Count(); c++)//ögrenci sayisis kadar
+                    for (int c = 0; c < siniflar[siniflarrr[b]].Count(); c++)//Ã¶grenci sayisis kadar
                     {
 
                         foreach (var item in siniflar[siniflarrr[b]].ElementAt(c))//sinifi
@@ -586,7 +586,7 @@ namespace kelebek
             }
             else
             {
-                MessageBox.Show(Math.Ceiling(decimal.Parse(karismis.Count.ToString()) / 30).ToString()+" Adet Sinif Seçiniz", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(Math.Ceiling(decimal.Parse(karismis.Count.ToString()) / 30).ToString()+" Adet Sinif SeÃ§iniz", "UYARI", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
